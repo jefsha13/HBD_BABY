@@ -1458,6 +1458,7 @@ function showMemoryGallery(){
 
 function generatePhotoCards(){
   const captions = ['us 💗','my fav','always','forever','besties','my love','our day','✨'];
+  const photos = ["https://github.com/jefsha13/HBD_BABY/blob/main/Us%20pic%201.jpeg?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%202.jpeg?raw=true" ,  "https://github.com/jefsha13/HBD_BABY/blob/main/Pic%203.JPG?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%204.jpeg?raw=true" ,"https://github.com/jefsha13/HBD_BABY/blob/main/pic%205.JPG?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%206.JPG?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%207.jpeg?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%208.jpeg?raw=true"];
   const backTexts = ['i love you','my fav girl','always yours','forever us','best ever','my heart','our memory','you & me'];
   const rots = ['-4deg','3deg','-2deg','5deg','-6deg','2deg','-3deg','4deg'];
   const seeds = [10,20,30,40,50,60,70,80];
@@ -1466,7 +1467,7 @@ function generatePhotoCards(){
       <div class="clip">📎</div>
       <div class="photo-card-inner">
         <div class="photo-face front">
-          <img src="https://github.com/jefsha13/HBD_BABY/blob/main/Us%20pic%201.jpeg?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%202.jpeg?raw=true", "https://github.com/jefsha13/HBD_BABY/blob/main/Pic%203.JPG?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%204.jpeg?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%205.JPG?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%206.JPG?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%207.jpeg?raw=true" , "https://github.com/jefsha13/HBD_BABY/blob/main/pic%208.jpeg?raw=true" alt="memory">
+          <img src= "${photos[i]" alt="memory">
           <div class="photo-caption">${captions[i]}</div>
         </div>
         <div class="photo-face back">
