@@ -26,8 +26,7 @@
       position:relative;
       font-family:'Playfair Display', serif;
     }
-
-    /* ===== FAIRY LIGHTS ===== */
+    
     .fairy-lights{
       position:fixed;
       top:0; left:0; width:100%; height:100%;
@@ -66,14 +65,12 @@
       50%{ opacity:0.3; transform:scale(0.85); }
     }
 
-    /* wire */
     .wire{
       position:absolute;
       top:0; left:0; width:100%; height:25px;
       pointer-events:none;
     }
 
-    /* ===== FLOATING PETALS ===== */
     .petal{
       position:fixed;
       font-size:14px;
@@ -89,7 +86,6 @@
       100%{ transform:translateY(110vh) rotate(720deg); opacity:0; }
     }
 
-    /* ===== CANDLES ===== */
     .candle-wrap{
       position:fixed;
       bottom:0;
@@ -147,7 +143,6 @@
       50%{ opacity:0.6; transform:translateX(-50%) scale(1.2); }
     }
 
-    /* ===== BALLOONS ===== */
     .balloon{
       position:fixed;
       bottom:-20px;
@@ -160,8 +155,7 @@
       0%{ transform:translateY(0) rotate(0deg); opacity:1; }
       100%{ transform:translateY(-110vh) rotate(var(--r,15deg)); opacity:0.2; }
     }
-
-    /* ===== ENVELOPE / MAIN CONTAINER ===== */
+    
     .container{
       position:relative;
       width:460px;
@@ -276,7 +270,6 @@
       to{ transform:translateY(-110vh) rotate(360deg); opacity:0; }
     }
 
-    /* ===== POPUP ===== */
     .popup{
       position:fixed;
       inset:0;
@@ -399,7 +392,6 @@
     .sparkles{ text-align:center; font-size:22px; margin-bottom:10px; animation:sparkleFloat 3s ease-in-out infinite; opacity:0.85; }
     @keyframes sparkleFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-5px); } }
 
-    /* ===== PHOTO STRING WALL ===== */
     .photo-wall-wrap{
       position:relative;
       padding:20px 10px 10px;
@@ -486,7 +478,6 @@
       font-style:italic;
     }
 
-    /* string from top of each card */
     .photo-card::before{
       content:'';
       position:absolute;
@@ -547,7 +538,6 @@
     .now-playing{ color:#1DB954; font-size:18px; animation:pulse 1s ease-in-out infinite; }
     @keyframes pulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.2); } }
 
-    /* ===== PHYSICAL LETTER CARD ===== */
     .physical-letter-wrap{
       display:flex;
       justify-content:center;
@@ -621,7 +611,6 @@
       font-style:italic;
     }
 
-    /* ===== CAKE & SNACK TABLE ===== */
     .cake-section{
       display:flex;
       justify-content:center;
@@ -655,7 +644,6 @@
       letter-spacing:1px;
     }
 
-    /* stack images */
     .stack-img{
       position:absolute;
       width:320px; height:430px;
@@ -801,7 +789,6 @@
       100%{ transform:translate(-300px,150px) scale(0); opacity:0; }
     }
 
-    /* ===== CLOSING ENVELOPE OVERLAY ===== */
     .close-overlay{
       position:fixed;
       inset:0;
@@ -1020,15 +1007,13 @@
   </style>
 </head>
 <body>
-
-<!-- ===== FAIRY LIGHTS TOP ===== -->
+  
 <div class="fairy-lights" id="fairyLights">
   <svg class="wire" xmlns="http://www.w3.org/2000/svg">
     <path d="M0,12 Q170,22 340,12 Q510,2 680,12" fill="none" stroke="#7a5c30" stroke-width="1.5" opacity="0.7"/>
   </svg>
 </div>
 
-<!-- ===== CANDLES LEFT ===== -->
 <div class="candle-wrap left">
   <div class="candle" style="position:relative;">
     <div class="candle-glow"></div>
@@ -1066,7 +1051,6 @@
   </div>
 </div>
 
-<!-- ===== ENVELOPE ===== -->
 <div class="container" id="container" onclick="openEnvelope(event)">
   <div class="envelope">
     <div class="flap"></div>
@@ -1095,7 +1079,6 @@
   </div>
 </div>
 
-<!-- tap hint -->
 <div id="tapHint" style="
   position:fixed;
   bottom:38px;
@@ -1111,8 +1094,6 @@
   white-space:nowrap;
 ">tap anywhere to open 💌</div>
 
-<!-- ===== BACKGROUND MUSIC (hidden YouTube) ===== -->
-<!-- Playing: Perfect - Ed Sheeran as default background -->
 <iframe id="ytBgMusic"
   src="https://www.youtube.com/embed/ORrFJ63nlcA?autoplay=1&loop=1&playlist=ORrFJ63nlcA&mute=0"
   style="display:none;width:0;height:0;"
@@ -1120,7 +1101,6 @@
   frameborder="0">
 </iframe>
 
-<!-- ===== CLOSING ENVELOPE OVERLAY ===== -->
 <div class="close-overlay" id="closeOverlay">
   <div style="text-align:center;">
     <div class="close-env" id="closeEnv">
@@ -1135,7 +1115,7 @@
 </div>
 
 <script>
-/* ===== FAIRY LIGHTS GENERATE ===== */
+  
 (function(){
   const wrap = document.getElementById('fairyLights');
   const colors = ['#ff6699','#ffb347','#fffacd','#ff9999','#ffcce0','#ffd700','#ff6b6b'];
@@ -1152,7 +1132,6 @@
   }
 })();
 
-/* ===== PETALS ===== */
 (function(){
   const petals = ['🌸','🌹','🌷','❤️','💗','🌺'];
   setInterval(()=>{
@@ -1171,7 +1150,6 @@
   }, 800);
 })();
 
-/* ===== ENVELOPE ===== */
 const container = document.getElementById('container');
 let opened = false;
 
@@ -1182,7 +1160,7 @@ function openEnvelope(e){
   opened = true;
   const hint = document.getElementById('tapHint');
   if(hint){ hint.style.opacity='0'; hint.style.transition='opacity 0.5s'; setTimeout(()=>hint.remove(),500); }
-  /* remove body-wide listeners once opened */
+  
   document.body.removeEventListener('click', bodyOpen);
   document.body.removeEventListener('touchend', bodyOpenTouch);
   createHearts();
@@ -1199,7 +1177,6 @@ function bodyOpenTouch(e){
   openEnvelope(e);
 }
 
-/* listen on whole body so nothing can block it */
 document.body.addEventListener('click', bodyOpen);
 document.body.addEventListener('touchend', bodyOpenTouch, {passive:false});
 
@@ -1559,7 +1536,6 @@ function showPromiseSlide(){
     canvas.appendChild(s);
   }
 
-  /* reveal promise items one by one */
   const ids = ['p1','p2','p3','p4','p5','p6'];
   ids.forEach((id,i)=>{
     setTimeout(()=>{
@@ -1568,7 +1544,6 @@ function showPromiseSlide(){
     }, 400 + i*500);
   });
 
-  /* shooting stars */
   setInterval(()=>{
     if(!document.getElementById('starsCanvas')) return;
     const ss = document.createElement('div');
@@ -1580,7 +1555,7 @@ function showPromiseSlide(){
 }
 
 function triggerClosingEnvelope(){
-  /* hide popup */
+ 
   const popup = document.querySelector('.popup');
   if(popup){
     popup.style.transition='opacity 0.8s ease';
@@ -1588,26 +1563,21 @@ function triggerClosingEnvelope(){
     setTimeout(()=>{ popup.style.display='none'; },800);
   }
 
-  /* big heart burst */
   createHearts();
   createHearts();
 
-  /* show overlay */
   const overlay = document.getElementById('closeOverlay');
   setTimeout(()=>{
     overlay.classList.add('active');
 
-    /* fold flap after 1.8s */
     setTimeout(()=>{
       document.getElementById('closeFlap').classList.add('folded');
     },1800);
 
-    /* stamp wax seal */
     setTimeout(()=>{
       document.getElementById('closeWax').classList.add('sealed');
     },3800);
 
-    /* final heart burst */
     setTimeout(()=>{ createHearts(); },5000);
   },600);
 }
@@ -1633,12 +1603,10 @@ function moveNoButton(){
   const btn = document.getElementById('noBtn');
   if(!btn) return;
 
-  /* pick a random spot anywhere in the popup that isn't near the cursor */
   const popup = document.querySelector('.popup-content');
   const pr = popup ? popup.getBoundingClientRect() : {width:300,height:400};
   const br = btn.getBoundingClientRect();
 
-  /* random position within popup bounds */
   const maxX = (pr.width  - br.width)  / 2 - 10;
   const maxY = (pr.height - br.height) / 2 - 10;
 
@@ -1648,7 +1616,6 @@ function moveNoButton(){
   btn.style.transition = 'transform 0.15s ease';
   btn.style.transform  = `translate(${x}px, ${y}px)`;
 
-  /* change label occasionally to tease her */
   const taunts = ['No 🙈','Nope!','Never!','Run 🏃','Nah~','😝','Nice try!','Catch me!'];
   btn.textContent = taunts[Math.floor(Math.random() * taunts.length)];
 }
@@ -1661,28 +1628,23 @@ function openMiniLetter(){
   const letter = document.getElementById('loveLetter');
   if(!env || !letter) return;
 
-  /* disable further clicks */
   env.onclick = null;
   env.style.cursor = 'default';
 
-  /* pop wax seal off */
   wax.style.transform = 'translate(-50%,-50%) scale(0)';
   wax.style.opacity = '0';
 
-  /* open flap */
   setTimeout(()=>{
     flap.style.transition = 'transform 1.2s cubic-bezier(0.6,0,0.4,1)';
     flap.style.transform = 'rotateX(-160deg)';
     if(peek) peek.textContent = '💌 opening...';
   }, 300);
 
-  /* lift envelope up slightly */
   setTimeout(()=>{
     env.style.transition = 'transform 0.6s ease';
     env.style.transform = 'translateY(-10px)';
   }, 800);
 
-  /* show letter sliding out */
   setTimeout(()=>{
     letter.style.display = 'block';
     requestAnimationFrame(()=>{
@@ -1703,18 +1665,15 @@ function closeMiniLetter(){
   const peek = document.getElementById('miniPeek');
   if(!letter) return;
 
-  /* hide letter */
   letter.style.opacity = '0';
   letter.style.transform = 'translateY(20px)';
   setTimeout(()=>{ letter.style.display = 'none'; }, 700);
 
-  /* close flap back */
   setTimeout(()=>{
     flap.style.transform = 'rotateX(0deg)';
     env.style.transform = 'translateY(0)';
   }, 400);
 
-  /* bring wax seal back */
   setTimeout(()=>{
     wax.style.transform = 'translate(-50%,-50%) scale(1)';
     wax.style.opacity = '1';
@@ -1725,13 +1684,11 @@ function closeMiniLetter(){
 }
 
 function playSong(ytId, spotifyId, num){
-  /* swap background YouTube music to the chosen song */
   const ytFrame = document.getElementById('ytBgMusic');
   if(ytFrame){
     ytFrame.src = `https://www.youtube.com/embed/${ytId}?autoplay=1&loop=1&playlist=${ytId}`;
   }
 
-  /* show Spotify mini player */
   const wrap = document.getElementById('spotifyPlayerWrap');
   if(wrap){
     wrap.innerHTML = `
@@ -1743,7 +1700,6 @@ function playSong(ytId, spotifyId, num){
       </iframe>`;
   }
 
-  /* update playing icons */
   for(let i=1;i<=7;i++){
     const ic = document.getElementById('si-'+i);
     if(!ic) continue;
